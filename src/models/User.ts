@@ -54,6 +54,9 @@ export class User {
       .save(this.attributes.getAll())
       .then((response: AxiosResponse): void => {
         this.trigger('save');
+      })
+      .catch(() => {
+        this.trigger('error');
       });
   }
 }
